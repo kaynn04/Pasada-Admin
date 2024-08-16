@@ -10,6 +10,8 @@
     --card-background: #fff;
     --active-bg-color: #79a8e531;
     --active-text-color: #0b6dee;
+    --hover-color: #f0f8ff;
+    --transition-speed: 0.3s;
 }
 
 * {
@@ -47,6 +49,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background: var(--main-color);
     margin-left: -10px;
+    
 }
 
 .sidebar-brand {
@@ -55,10 +58,11 @@ body {
     border-bottom: 1px solid #ddd;
     position: relative; /* Ensure the brand stays in its place */
     z-index: 2; /* Ensure it stays above the sidebar menu */
-    height: 91px; /* Set height to match header */
+    height: 90px; /* Set height to match header */
     display: flex; /* Use flexbox for vertical alignment */
     align-items: center; /* Center items vertically */
     margin-left: -20px;
+    
 }
 
 .sidebar-brand h1 {
@@ -74,6 +78,7 @@ body {
     width: 100%;
     margin-bottom: 1.3rem;
     padding-left: 3rem;
+    transition: var(--background-color) var(--transition-speed);
 }
 
 .sidebar-menu a {
@@ -81,12 +86,25 @@ body {
     display: block;
     color: var(--text-black);
     font-size: 1.1rem;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    margin-right: 55px; /* Ensure margin stays consistent */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
+
+.sidebar-menu a.active,
+.sidebar-menu a:hover {
+    background-color: #79a8e531;
+    color: #0b6dee;
+    border-radius: 5px;
+    /* No margin changes on hover */
+}
+
 /* yung indicator kung anong sidebar ang currently open */
 .sidebar-menu a.active {
     background-color: #79a8e531;
     padding-top: 1rem;
-    padding-bottom: 1rem; 
+    padding-bottom: 1rem;
     margin-right: 55px;
     color: #0b6dee;
     border-radius: 5px;
@@ -96,6 +114,7 @@ body {
     font-size: 1.5rem;
     padding-right: 1rem;
 }
+
 
 .main-content {
     margin-left: 340px; /* Ensure main content aligns properly next to the sidebar */
@@ -163,6 +182,11 @@ header label span {
     width: 50px;
     height: 50px;
     object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.user-wrapper img:hover {
+    transform: scale(1.1);
 }
 
 .user-wrapper small {
@@ -192,6 +216,12 @@ main {
     padding: 2rem;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.card-single:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    transform: translateY(-5px); /* Added lift effect on hover */
 }
 
 .card-single h1 {
@@ -200,9 +230,13 @@ main {
     color: var(--text-black);
 }
 
-.card-single span:last-child {
+.card-single span:first-child{
     color: var(--color-dark);
     font-size: 1.5rem;
+}
+
+.card-single span:first-child {
+    font-size: 3rem;
 }
 
 .recent-grid {
@@ -217,6 +251,12 @@ main {
     border-radius: 10px;
     padding: 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    transform: translateY(-5px); /* Added lift effect on hover */
 }
 
 .card-header {
@@ -241,6 +281,11 @@ main {
     cursor: pointer;
     display: flex;
     align-items: center;
+    transition: background-color var(--transition-speed);
+}
+
+.card-header button:hover {
+    background: var(--hover-color); /* Added hover effect */
 }
 
 .card-header button span {
@@ -301,6 +346,11 @@ table tbody td {
     border-radius: 50%;
     object-fit: cover;
     margin-right: 1rem;
+    transition: transform var(--transition-speed);
+}
+
+.customer img:hover {
+    transform: scale(1.1); /* Added scale effect on hover */
 }
 
 .customer div:first-child {
@@ -330,6 +380,339 @@ table tbody td {
     cursor: pointer;
 }
 
+.customer div:last-child span:hover {
+    color: var(--active-text-color); /* Added color change on hover */
+}
+
 .history {
     margin-top: 40px;
+}
+
+/* Styling for employee.html */
+
+.employee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.employee-header button {
+    background: var(--active-bg-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: var(--active-text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.employee-header button.add-employee {
+    background-color: #4CAF50;
+    color: var(--main-color);
+}
+
+.employee-header button.remove-employee {
+    background-color: #f44336; /* Red for Remove Employee */
+    color: var(--main-color);
+}
+
+/* Hover effects */
+.employee-header button.add-employee:hover {
+    background-color: #66bb6a; /* Light green */
+}
+
+.employee-header button.remove-employee:hover {
+    background-color: #ef5350; /* Light red */
+}
+
+.employee-header .employee-count {
+    font-size: 1.1rem;
+    color: var(--text-black);
+}
+
+
+.employee-form, .employee-list {
+    margin-top: -0.6rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.employee-form h2, .employee-list h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-black);
+}
+
+.employee-form label {
+    margin-right: 0.3rem;
+    font-weight: 100;
+}
+
+.employee-form input, .employee-form select {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.employee-form button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--active-bg-color);
+    color: var(--active-text-color);
+    cursor: pointer;
+}
+
+.employee-form button:hover {
+    background-color: var(--hover-color);
+}
+
+.employee-list {
+    margin-top: 0.5rem;
+}
+
+
+.employee-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employee-list th, .employee-list td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.employee-list th {
+    background: var(--background-color);
+    color: var(--text-black);
+}
+
+.employee-list td button {
+    margin-right: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--active-bg-color);
+    color: var(--active-text-color);
+    cursor: pointer;
+}
+
+.employee-list td button:hover {
+    background-color: var(--hover-color);
+}
+
+.status-circle {
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Styling for routes.html */
+
+.route-form, .route-list {
+    margin-top: -0.6rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.route-form h2, .route-list h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-black);
+}
+
+.route-form label {
+    margin-right: 0.3rem;
+    font-weight: 100;
+}
+
+.route-form input {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.route-form button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--active-bg-color);
+    color: var(--active-text-color);
+    cursor: pointer;
+}
+
+.route-form button:hover {
+    background-color: var(--hover-color);
+}
+
+.route-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.route-header button {
+    background: var(--active-bg-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: var(--active-text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.route-header button.add-route {
+    background-color: #4CAF50; /* Green for Add Route */
+    color: #fff;
+}
+
+.route-header button.remove-route {
+    background-color: #f44336; /* Red for Remove Route */
+    color: #fff;
+}
+
+/* Hover effects */
+.route-header button.add-route:hover {
+    background-color: #66bb6a; /* Light green */
+}
+
+.route-header button.remove-route:hover {
+    background-color: #ef5350; /* Light red */
+}
+
+.route-header .route-count {
+    font-size: 1.1rem;
+    color: var(--text-black);
+}
+
+.route-list {
+    margin-top: 0.5rem;
+}
+
+.route-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.route-list th, .route-list td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.route-list th {
+    background: var(--background-color);
+    color: var(--text-black);
+}
+
+.route-list td button {
+    margin-right: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--active-bg-color);
+    color: var(--active-text-color);
+    cursor: pointer;
+}
+
+.route-list td button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Styling for history.html */
+
+.history-form, .history-list {
+    margin-top: -0.6rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.history-form h2, .history-card h2, .history-list h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-black);
+}
+
+.history-form label {
+    margin-right: 0.3rem;
+    font-weight: 100;
+}
+
+.history-form input {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.history-form button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--active-bg-color);
+    color: var(--active-text-color);
+    cursor: pointer;
+}
+
+.history-form button:hover {
+    background-color: var(--hover-color);
+}
+
+.history-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history-card, .transaction-count {
+    font-size: 1.1rem;
+    color: var(--text-black);
+    margin-top: 0.9rem;
+}
+
+.history-list {
+    margin-top: 1rem;
+}
+
+.history-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-list th, .history-list td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.history-list th {
+    background: var(--background-color);
+    color: var(--text-black);
+}
+
+.history-list td {
+    color: var(--text-black);
 }
