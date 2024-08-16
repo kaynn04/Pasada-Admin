@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h1><span class="lab la-accusoft"></span> Pasada</h1>
+        </div>
+
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href=""><span class="las la-igloo"></span>
+                    <span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-users"></span>
+                    <span>Customers</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-clipboard-list"></span>
+                    <span>Employees</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-road"></span>
+                    <span>Routes</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-receipt"></span>
+                    <span>History</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+           <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Search here" />
+           </div>   
+
+           <div class="user-wrapper">
+                <img src="images/MyPicture.jpg" width="40px" height="40px" alt="">
+                <div>
+                    <h4>Kyan Oclares</h4>
+                    <small>Super admin</small>
+                </div>
+           </div>
+        </header>
+
+        <main>
+            <div class="route-form">
+                <h2>Add/Edit Route</h2>
+                <form>
+                    <label for="from">From:</label>
+                    <input type="text" id="from" placeholder="Enter starting point" required>
+
+                    <label for="to">To:</label>
+                    <input type="text" id="to" placeholder="Enter destination" required>
+
+                    <label for="fare">Fare:</label>
+                    <input type="text" id="fare" placeholder="Enter fare" required>
+
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+
+            <div class="route-header">
+                <button class="add-route">Add Route</button>
+                <span class="route-count">Total Destinations: 0</span>
+                <button class="remove-route">Remove Route</button>
+            </div>
+
+            <div class="route-list">
+                <h2>Route List</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Fare</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fairview Terraces</td>
+                            <td>Bukluran</td>
+                            <td>P40</td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <!-- More rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+</body>
+</html>
